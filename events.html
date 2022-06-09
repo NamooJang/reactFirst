@@ -9,8 +9,11 @@
 <script>
     const root = document.getElementById("root");
     const span = React.createElement("h3", null, "Hello I am a span");
-    const btn = React.createElement("button", {onClick: () =>
-        console.log("Clicked"),
+    const btn = React.createElement("button", {
+        onClick: () => console.log("Clicked"),
+        style : {
+            backgroundColor: "tomato"
+        }
     }, "Click Me")
     const container = React.createElement("div", null, [span, btn])
 
