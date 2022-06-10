@@ -8,20 +8,25 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById("root");
-    const Title = () => (<h3>Hell JSX</h3>) 
-    const Button = () => (<button style={{backgroundColor: "tomato"}} onClick={()=> console.log("Clicked")}>Click Me</button>)
+    let counter = 0;
 
+    const countUp = () => {
+        counter = counter + 1
+        render();
+    }
+
+    const render = () => {
+        ReactDOM.render(<Container/>, root);
+    }
 
     const Container = () => (
-        <>
-            <Title/>
-            <Button/>
-        </>
-        )
-    
-    // const container = React.createElement("div", null, [Title, Button])
+    <>
+        <h3>Total Clicks: {counter}</h3>
+        <button onClick={countUp}>Click Me</button>
+    </>
+    )
 
-    ReactDOM.render(<Container/>, root);
+    render();
 </script>
 
 </html>
