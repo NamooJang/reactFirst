@@ -16,18 +16,27 @@
 
     const onChange = (event) => {
         setMinutes(event.target.value);
-        console.log(event);
+    }
+
+    const reset = () => {
+        setMinutes(0)
     }
 
         return(
             <>
                 <h1>Super Converter</h1>
-                <label htmlFor="minutes">Minutes</label>
-                <input value={minutes} id="minutes" type="number" placeholder="Minutes" onChange={onChange}/><br/>
-                <h4>want to convert : {minutes} min</h4>
+                <div> 
+                    <label htmlFor="minutes">Minutes</label>
+                    <input value={minutes} id="minutes" type="number" placeholder="Minutes" onChange={onChange} /><br />
+                </div>
                 <br/>
-                <label htmlFor="hours">Hours</label>
-                <input id="hours" type="number" placeholder="Hours"/>
+                <div>
+                    <label htmlFor="hours">Hours</label>
+                    <input value={Math.round(minutes / 60)} id="hours" type="number" placeholder="Hours" />
+                </div>
+                <br/>
+
+                <button onClick={reset}>reset</button>
             </>
         )
     }
